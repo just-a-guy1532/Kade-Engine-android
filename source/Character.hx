@@ -336,6 +336,25 @@ class Character extends FlxSprite
 				playAnim('idle');
 
 				flipX = true;
+
+                      case 'bf-laser-dead':
+				var tex = Paths.getSparrowAtlas('characters/EVISCERATION', 'shared');
+				frames = tex;
+
+				trace(tex.frames.length);
+
+				animation.addByPrefix('deathConfirm', 'BF dead 2 confirm instance 1', 24, false);
+				animation.addByPrefix('deathLoop', 'BF dead 2 loop instance 1', 24, true);
+				animation.addByPrefix('firstDeath', 'BF dies 2 instance 1', 24, false);
+				
+				addOffset('firstDeath');
+				addOffset('deathLoop', -37, 30);
+				addOffset('deathConfirm', -37);
+
+				playAnim('firstDeath');
+
+				flipX = true;
+
 			case 'bf-car':
 				var tex = Paths.getSparrowAtlas('characters/bfCar');
 				frames = tex;
@@ -496,6 +515,46 @@ class Character extends FlxSprite
 				addOffset("singRIGHT-alt", -1, -24);
 				addOffset("singLEFT-alt", -30, 15);
 				addOffset("singDOWN-alt", -30, -27);
+
+				playAnim('idle');
+
+                        case 'carol':
+				// DAD ANIMATION LOADING CODE
+				tex = Paths.getSparrowAtlas('characters/Lady_Carol', 'shared');
+				frames = tex;
+				animation.addByPrefix('idle', 'Dad idle dance', 24);
+				animation.addByPrefix('singUP', 'Dad Sing Note UP', 24);
+				animation.addByPrefix('singRIGHT', 'Dad Sing Note RIGHT', 24);
+				animation.addByPrefix('singDOWN', 'Dad Sing Note DOWN', 24);
+				animation.addByPrefix('singLEFT', 'Dad Sing Note LEFT', 24);
+				animation.addByPrefix('hey', 'Carol AYO!!', 24);
+
+				addOffset('idle');
+				addOffset("singUP", -16, 50);
+				addOffset("singRIGHT", -26, 27);
+				addOffset("singLEFT", -10, 10);
+				addOffset("singDOWN", 0, -30);
+				addOffset("hey", 1, 0);
+
+				playAnim('idle');
+
+                        case 'hellchart-carol':
+				// DAD ANIMATION LOADING CODE
+				tex = Paths.getSparrowAtlas('characters/carol_assets', 'shared');
+				frames = tex;
+				animation.addByPrefix('idle', 'carol idle', 24);
+				animation.addByPrefix('singUP', 'carol up', 24);
+				animation.addByPrefix('singRIGHT', 'carol right', 24);
+				animation.addByPrefix('singDOWN', 'carol down', 24);
+				animation.addByPrefix('singLEFT', 'carol left', 24);
+				animation.addByPrefix('laser', 'carol alt', 24);
+
+				addOffset('idle');
+				addOffset("singUP", -16, 50);
+				addOffset("singRIGHT", -26, 27);
+				addOffset("singLEFT", -10, 10);
+				addOffset("singDOWN", 0, -30);
+				addOffset("laser", -180, 0);
 
 				playAnim('idle');
 		}
