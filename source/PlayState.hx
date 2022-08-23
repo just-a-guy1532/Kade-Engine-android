@@ -121,6 +121,7 @@ class PlayState extends MusicBeatState
 	public static var dad:Character;
 	public static var gf:Character;
 	public static var boyfriend:Boyfriend;
+	public var car:FlxSprite;
 
 	public var notes:FlxTypedGroup<Note>;
 	private var unspawnNotes:Array<Note> = [];
@@ -741,6 +742,88 @@ class PlayState extends MusicBeatState
 	
 						add(stageCurtains);
 				}
+				case 'street':
+			{
+				defaultCamZoom = 0.88;
+				curStage = 'stage';
+				var bg:FlxSprite = new FlxSprite(-370, -50).loadGraphic(Paths.image('street_bg'));
+				bg.antialiasing = true;
+				bg.scrollFactor.set(0.9, 0.9);
+				bg.setGraphicSize(Std.int(bg.width * 1.29));
+				bg.active = false;
+				add(bg);
+				
+				var bg:FlxSprite = new FlxSprite(-370, -50).loadGraphic(Paths.image('street'));
+				bg.antialiasing = true;
+				bg.scrollFactor.set(0.9, 0.9);
+				bg.setGraphicSize(Std.int(bg.width * 1.29));
+				bg.active = false;
+				add(bg); 
+
+				
+			    var car:FlxSprite = new FlxSprite(0, 0);
+				car.frames = Paths.getSparrowAtlas('Car');
+				car.animation.addByPrefix('move', 'BRUMBRUM', 24, true);
+				car.animation.play('move');
+				car.setGraphicSize(Std.int(car.width * 0.7));
+				car.screenCenter();
+				car.y += 700;
+				car.x += -850;
+				car.antialiasing = true;
+				car.scrollFactor.set(0.7, 0.7);
+			    add(car);					
+			}
+			
+			case 'streetalt':
+			{
+				defaultCamZoom = 0.88;
+				curStage = 'stage';
+				var bg:FlxSprite = new FlxSprite(-370, -50).loadGraphic(Paths.image('street_bg'));
+				bg.antialiasing = true;
+				bg.scrollFactor.set(0.9, 0.9);
+				bg.setGraphicSize(Std.int(bg.width * 1.29));
+				bg.active = false;
+				add(bg);
+				
+				var bg:FlxSprite = new FlxSprite(-370, -50).loadGraphic(Paths.image('streetalt'));
+				bg.antialiasing = true;
+				bg.scrollFactor.set(0.9, 0.9);
+				bg.setGraphicSize(Std.int(bg.width * 1.29));
+				bg.active = false;
+				add(bg); 
+
+				
+			    var car:FlxSprite = new FlxSprite(0, 0);
+				car.frames = Paths.getSparrowAtlas('Car');
+				car.animation.addByPrefix('move', 'BRUMBRUM', 24, true);
+				car.animation.play('move');
+				car.setGraphicSize(Std.int(car.width * 0.7));
+				car.screenCenter();
+				car.y += 700;
+				car.x += -850;
+				car.visible = true;
+				car.antialiasing = true;
+				car.scrollFactor.set(0.7, 0.7);
+			    add(car);					
+			}
+			case 'sky':
+			{
+				defaultCamZoom = 0.7;
+				curStage = 'stage';								
+				var bg:FlxSprite = new FlxSprite(-3000, -1450).loadGraphic(Paths.image('sky'));
+				bg.antialiasing = true;
+				bg.scrollFactor.set(0.9, 0.9);
+				bg.setGraphicSize(Std.int(bg.width * 0.38));
+				bg.active = false;
+				add(bg);
+
+				var white:FlxSprite = new FlxSprite(0, 100).loadGraphic(Paths.image('WhiteVG'));
+				white.antialiasing = true;
+				white.scrollFactor.set(0.9, 0.9);
+				white.setGraphicSize(Std.int(white.width * 1.80));
+				white.active = false;
+				add(white);						
+			}
 			default:
 			{
 					defaultCamZoom = 0.9;
@@ -838,6 +921,14 @@ class PlayState extends MusicBeatState
 				dad.x -= 150;
 				dad.y += 100;
 				camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
+			case 'carol':
+				dad.x -= 400;
+				dad.y += 25;
+				camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
+			case 'hellchart-carol':
+				dad.x -= 250;
+				dad.y += -60;
+				camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
 		}
 
 
@@ -893,6 +984,10 @@ class PlayState extends MusicBeatState
 
 			add(dad);
 			add(boyfriend);
+		}
+		
+		if (curStage == "street"){
+			add(car);
 		}
 
 
