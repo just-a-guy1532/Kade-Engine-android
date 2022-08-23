@@ -5,9 +5,10 @@ Dad Battle:dad:1
 Spookeez:spooky:2
 South:spooky:2
 Monster:monster:2
-Pico:pico:3
-Philly Nice:pico:3
-Blammed:pico:3
+Carol-roll:carol:3
+Body:carol:3
+Boogie:carol:3
+Hellroll:hellchart-carol:3
 Satin Panties:mom:4
 High:mom:4
 Milf:mom:4
