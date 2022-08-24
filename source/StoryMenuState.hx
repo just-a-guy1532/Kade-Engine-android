@@ -149,6 +149,15 @@ class StoryMenuState extends MusicBeatState
 
 		trace("Line 96");
 
+                weekSprites =  new FlxSprite(yellowBG.x, yellowBG.y).loadGraphic(Paths.image('weekspriteSheet'), true, 1280, 400);
+        weekSprites.animation.add('week0', [6], 0, false);
+        weekSprites.animation.add('week1', [1], 0, false);
+        weekSprites.animation.add('week2', [2], 0, false);
+        weekSprites.animation.add('week4', [3], 0, false);
+        weekSprites.animation.add('week5', [4], 0, false);
+        weekSprites.animation.add('week6', [5], 0, false);
+        weekSprites.antialiasing = true;
+
 		grpWeekCharacters.add(new MenuCharacter(0, 100, 0.5, false));
 		grpWeekCharacters.add(new MenuCharacter(450, 25, 0.9, true));
 		grpWeekCharacters.add(new MenuCharacter(850, 100, 0.5, true));
